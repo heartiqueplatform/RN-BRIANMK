@@ -1,16 +1,3 @@
-export const site = {
-  name: "JxB",
-  fullName: "JxB",
-  tagline: "Kenyan Nurse · Healthcare Innovator · Digital Health Enthusiast",
-  location: "Nairobi, Kenya",
-  email: "hello@jxb.health",
-  phone: "+254 700 000 000",
-  socials: {
-    linkedin: "https://linkedin.com/in/jxb",
-    github: "https://github.com/jxb",
-    whatsapp: "https://wa.me/254700000000",
-  },
-};
 
 export const navItems = [
   { to: "/", label: "Home" },
@@ -43,49 +30,8 @@ export const achievements = [
   { label: "Research Interests", value: 3, icon: "Microscope" },
 ];
 
-export const journey = [
-  {
-    hospital: "Kenyatta National Hospital",
-    department: "Emergency & Casualty",
-    role: "Student Nurse Rotation",
-    period: "2024",
-    responsibilities: ["Triage assistance", "Vitals monitoring", "Acute care support"],
-    lesson: "Calm under pressure is itself a clinical skill.",
-  },
-  {
-    hospital: "Aga Khan University Hospital",
-    department: "Medical-Surgical Ward",
-    role: "Clinical Placement",
-    period: "2024",
-    responsibilities: ["Post-op care", "Medication administration", "Patient education"],
-    lesson: "Recovery happens in the smallest, quietest moments.",
-  },
-  {
-    hospital: "Mbagathi County Hospital",
-    department: "Maternity & Newborn",
-    role: "Clinical Rotation",
-    period: "2023",
-    responsibilities: ["Antenatal care", "Newborn assessment", "Family counselling"],
-    lesson: "Dignity is the first medicine.",
-  },
-  {
-    hospital: "Coptic Hospital",
-    department: "Outpatient & Community Health",
-    role: "Community Health Attachment",
-    period: "2023",
-    responsibilities: ["Health screenings", "Vaccination drives", "Patient education"],
-    lesson: "Prevention is the most underrated intervention.",
-  },
-];
 
-export const certifications = [
-  { title: "Basic Life Support (BLS)", org: "Kenya Red Cross", date: "2024", url: "#" },
-  { title: "Advanced Cardiac Life Support", org: "AHA", date: "2024", url: "#" },
-  { title: "Infection Prevention & Control", org: "MOH Kenya", date: "2023", url: "#" },
-  { title: "Digital Health Foundations", org: "Coursera · Stanford", date: "2024", url: "#" },
-  { title: "Patient Safety Essentials", org: "WHO Academy", date: "2024", url: "#" },
-  { title: "Mental Health First Aid", org: "MHFA Kenya", date: "2023", url: "#" },
-];
+
 
 export const projects = [
   {
