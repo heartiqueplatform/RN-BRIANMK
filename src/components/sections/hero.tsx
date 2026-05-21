@@ -4,11 +4,16 @@ import { Download, MessageCircle, ArrowRight, FolderKanban } from "lucide-react"
 import portrait from "@/assets/jxb-portrait.jpg";
 
 export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
-  // If the birdy is still flying back from the cloud, show a simple empty space
-  if (isLoading || !data) return <div className="h-screen" />;
+  // 1. Better Check: Ensure the data actually has content (like a headline)
+  // If data is just {}, the text won't show but the image will.
+  if (isLoading || !data || !data.headline_top) {
+    return <div className="h-screen" />;
+  }
 
   return (
-    <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
+    // 2. Add a KEY based on the data.
+    // This forces the entire section to refresh when the data is loaded.
+    <section key={data.full_name} className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 -z-10 grid-pattern opacity-40" />
 
       <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center">
@@ -16,6 +21,7 @@ export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full glass"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -25,6 +31,7 @@ export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-5 text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight"
           >
             <span className="block">{data.headline_top}</span>
@@ -34,10 +41,13 @@ export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl"
           >
             {data.bio}
           </motion.p>
+
+          {/* ... rest of your code ... */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
