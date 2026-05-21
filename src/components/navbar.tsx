@@ -42,7 +42,7 @@ export function Navbar() {
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-[60] w-[min(100%-1.25rem,72rem)]"
+      className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] w-[min(100%-1.25rem,72rem)]"
     >
       {/* MAIN BAR - Light/Dark Adaptive */}
       <div className="bg-background/80 dark:bg-card/80 backdrop-blur-xl rounded-full px-4 py-2.5 flex items-center justify-between shadow-lg dark:shadow-2xl border border-border/50">
