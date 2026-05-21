@@ -2,18 +2,16 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Download, MessageCircle, ArrowRight, FolderKanban } from "lucide-react";
 import portrait from "@/assets/jxb-portrait.jpg";
-
 export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
-  // 1. Better Check: Ensure the data actually has content (like a headline)
-  // If data is just {}, the text won't show but the image will.
-  if (isLoading || !data || !data.headline_top) {
-    return <div className="h-screen" />;
-  }
+  // FIX: Only return null if we TRULY have no data.
+  // If we have data in the cache (from switching tabs), we show it immediately!
+  if (!data && isLoading) return <div className="h-screen" />;
+  if (!data) return null;
 
   return (
-    // 2. Add a KEY based on the data.
-    // This forces the entire section to refresh when the data is loaded.
-    <section key={data.full_name} className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
+    // FIX: Using a key ensures Framer Motion restarts the writing animation
+    // every time you navigate to this page.
+    <section key={data?.full_name || 'hero'} className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 -z-10 grid-pattern opacity-40" />
 
       <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center">
@@ -47,11 +45,10 @@ export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
             {data.bio}
           </motion.p>
 
-          {/* ... rest of your code ... */}
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-8 flex flex-wrap gap-3"
           >
             <a
@@ -65,24 +62,30 @@ export function Hero({ data, isLoading }: { data: any; isLoading: boolean }) {
             </Link>
           </motion.div>
 
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground"
+          >
             {data.roles?.map((role: string) => (
               <span key={role} className="inline-flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-primary" />
                 {role}
               </span>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
           className="relative mx-auto w-full max-w-lg"
         >
           <div className="relative rounded-xl overflow-hidden glass-strong p-0 shadow-elegant">
             <img
-              src={data.portrait_url || portrait} // Uses cloud image, or falls back to local file
+              src={data.portrait_url || portrait}
               alt={`Portrait of ${data.full_name}`}
               className="rounded-xl aspect-square object-cover w-full"
             />
