@@ -17,7 +17,7 @@ export default defineConfig({
         manifest: {
           name: 'RN.BMK Healthcare Portfolio',
           short_name: 'RN B.Muthomi k',
-          description: 'Brian Muthomi Kinyua - Nurse, Healthcare provider, Innovator & Digital Health Builder',
+          description: 'Brian Muthomi Kinyua - Nurse, Healthcare provider & Digital Health Builder',
           theme_color: '#0a1020',
           background_color: '#0a1020',
           display: 'standalone',
