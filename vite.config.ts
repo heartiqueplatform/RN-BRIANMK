@@ -10,6 +10,7 @@ export default defineConfig({
   vite: {
     base: '/',
     plugins: [
+
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
