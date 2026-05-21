@@ -8,6 +8,7 @@ export default defineConfig({
     },
   },
   vite: {
+    base: '/',
     plugins: [
       VitePWA({
         registerType: 'autoUpdate',
