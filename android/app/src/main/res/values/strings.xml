@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NURSE BRIAN MK</string>
+    <string name="title_activity_main">NURSE BRIAN MK</string>
+    <string name="package_name">com.nursebrianmk.com</string>
+    <string name="custom_url_scheme">com.nursebrianmk.com</string>
+</resources>

@@ -100,7 +100,7 @@ export function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden glass-strong rounded-3xl mt-2 p-3 grid gap-1 border border-white/10"
+          className="md:hidden bg-background/95 backdrop-blur-md rounded-[2rem] mt-2 p-3 grid gap-1 border border-white/10 shadow-2xl"
         >
           {navItems.map((n) => (
             <Link

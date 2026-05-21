@@ -14,7 +14,7 @@ export function MobileBottomNav() {
   const loc = useLocation();
   return (
     <nav className="md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[min(100%-1rem,32rem)]">
-      <div className="glass-strong rounded-full px-2 py-1.5 flex items-center justify-between shadow-elegant">
+      <div className="bg-background/95 backdrop-blur-md rounded-full px-2 py-1.5 flex items-center justify-between shadow-2xl border border-white/10">
         {items.map(({ to, label, Icon }) => {
           const active = loc.pathname === to;
           return (
