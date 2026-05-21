@@ -34,7 +34,7 @@ export function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[min(100%-1.25rem,72rem)]"
+      className="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-[min(100%-1.25rem,72rem)]"
     >
       <div className="glass-strong rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-elegant">
         <Link to="/" className="flex items-center gap-2 group">

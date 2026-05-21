@@ -15,7 +15,7 @@ export function About({ items, isLoading }: { items: any[] | undefined, isLoadin
       title={<>A nurse <span className="text-gradient">with a builder's mind.</span></>}
       description="I trained in Kenya's busiest wards and fell in love with the moments medicine forgets to measure — eye contact, a steady voice, a hand held a second longer. I'm building Mentree and exploring digital health because the future of African healthcare deserves both clinical excellence and product imagination."
     >
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-2">
         {items?.map((item, i) => {
           const Icon = iconMap[item.icon_name as keyof typeof iconMap] || Heart;
 
