@@ -4,7 +4,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   tanstackStart: {
     server: {
-      // Changed from "server" to "./src/server.ts" to fix the Zod path error
       entry: "./src/server.ts"
     },
   },
