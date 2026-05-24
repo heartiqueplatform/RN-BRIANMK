@@ -4,7 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   tanstackStart: {
     server: {
-      entry: "./src/server.ts"
+      entry: "./src/server.ts",
+      preset: "vercel",
     },
   },
   vite: {
