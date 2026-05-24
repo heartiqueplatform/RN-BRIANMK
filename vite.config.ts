@@ -2,11 +2,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  tanstackStart: {
-    server: {
-      entry: "./src/server.ts"
-    },
-  },
+
+
   vite: {
     base: '/',
     plugins: [
