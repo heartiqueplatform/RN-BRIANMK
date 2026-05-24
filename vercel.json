@@ -2,10 +2,6 @@
     "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/tap.mp3",
-            "destination": "/tap.mp3"
-        },
-        {
             "source": "/(.*)",
             "destination": "/"
         }

@@ -36,7 +36,7 @@ export default defineConfig({
         },
         workbox: {
           // This tells the PWA Robot to save your files for offline use
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,mp3,woff2}'],
           runtimeCaching: [
             {
               // This tells the Robot to save your Supabase data for 1 day
