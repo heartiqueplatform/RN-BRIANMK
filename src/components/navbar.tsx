@@ -30,7 +30,7 @@ export function Navbar() {
   const triggerFeedback = () => {
     // Only run in the browser
     if (typeof window !== "undefined") {
-      const audio = new Audio("./tap.mp3");
+      const audio = new Audio("/tap.mp3");
       audio.volume = 0.4;
       audio.play().catch(() => { });
 

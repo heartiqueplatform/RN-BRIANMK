@@ -18,7 +18,7 @@ function ContactPage() {
   // --- FEEDBACK LOGIC (Sound + Vibration) ---
   const triggerFeedback = () => {
     // 1. Play Sound
-    const audio = new Audio("./tap.mp3");
+    const audio = new Audio("/tap.mp3");
     audio.volume = 0.5;
     audio.play().catch(() => { }); // Catch prevents errors if browser blocks auto-play
 
