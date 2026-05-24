@@ -1,15 +1,16 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
+
 export default defineConfig({
   base: "/",
 
   plugins: [
     react(),
     tsconfigPaths(),
-    TanStackRouterVite(),
+    tailwindcss(),
 
     VitePWA({
       registerType: "autoUpdate",
@@ -47,10 +48,8 @@ export default defineConfig({
           {
             urlPattern: /^https:\/\/.*\.supabase\.co\/.*/,
             handler: "NetworkFirst",
-
             options: {
               cacheName: "supabase-data",
-
               expiration: {
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24,
