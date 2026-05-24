@@ -38,7 +38,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+    <div className="flex min-h-dvh items-QAcenter justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold">This page didn't load</h1>
         <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end.</p>
@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/manifest.webmanifest" },
+
       { rel: "icon", href: "/icon-192.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/icon-192.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
