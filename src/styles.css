@@ -1,6 +1,8 @@
-@import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+
+@import "tailwindcss";
+
+@source "../src";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -46,16 +48,39 @@
   --animate-shimmer: shimmer 2.5s linear infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
+
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.55; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
   }
+
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
   }
 }
 
@@ -72,7 +97,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.03 230);
 
-  --primary: oklch(0.58 0.13 200);          /* teal */
+  --primary: oklch(0.58 0.13 200);
+  /* teal */
   --primary-foreground: oklch(0.99 0.005 200);
   --primary-glow: oklch(0.78 0.16 195);
 
@@ -124,8 +150,14 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -133,8 +165,18 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
-  ::selection { background: color-mix(in oklab, var(--primary) 35%, transparent); }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+  }
 }
 
 @layer components {
@@ -144,41 +186,52 @@
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
   }
+
   .glass-strong {
     background: color-mix(in oklab, var(--surface) 80%, transparent);
     backdrop-filter: blur(24px) saturate(160%);
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
   }
+
   .text-gradient {
     background: linear-gradient(135deg, var(--primary), var(--primary-glow));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
+
   .shimmer-text {
     background: linear-gradient(90deg,
-      var(--foreground) 0%,
-      var(--primary-glow) 50%,
-      var(--foreground) 100%);
+        var(--foreground) 0%,
+        var(--primary-glow) 50%,
+        var(--foreground) 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: shimmer 4s linear infinite;
   }
+
   .grid-pattern {
     background-image:
       linear-gradient(color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px),
       linear-gradient(90deg, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px);
     background-size: 48px 48px;
   }
+
   .glow-ring {
     box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
-                0 0 40px -8px color-mix(in oklab, var(--primary) 60%, transparent);
+      0 0 40px -8px color-mix(in oklab, var(--primary) 60%, transparent);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
