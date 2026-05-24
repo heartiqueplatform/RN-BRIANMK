@@ -16,7 +16,7 @@ export function Support({ tiers, goal, isLoading }: { tiers: any[] | undefined, 
       id="support"
       eyebrow="Support the journey"
       title={<>Back a Kenyan nurse <span className="text-gradient">building the future.</span></>}
-      description="If something here moved you — a story, a project, a vision — a small contribution helps fund tools, certifications, and the early days of Mentree."
+      description="If something here moved you — a story, a project, a vision  a small contribution helps fund tools, certifications, and the early days of Mentrae."
     >
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6">
         <div className="grid sm:grid-cols-2 gap-3">

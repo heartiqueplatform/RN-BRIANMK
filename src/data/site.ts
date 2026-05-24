@@ -105,13 +105,7 @@ export const posts = [
   },
 ];
 
-export const supportTiers = [
-  { icon: "Coffee", title: "Buy Coffee", amount: "KES 200", note: "Fuel a late-night study session." },
-  { icon: "Stethoscope", title: "Support Clinical Growth", amount: "KES 1,000", note: "Books, scrubs, equipment." },
-  { icon: "Rocket", title: "Support Mentree", amount: "KES 2,500", note: "Help us connect more nurses." },
-  { icon: "Lightbulb", title: "Support Innovation", amount: "KES 5,000", note: "Back early healthcare experiments." },
-  { icon: "Heart", title: "Appreciation Token", amount: "Any amount", note: "Just because. Thank you." },
-];
+
 
 export const supportGoal = {
   title: "Mentree v1 Launch",
