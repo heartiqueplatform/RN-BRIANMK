@@ -9,8 +9,8 @@ export function Skills({ items, isLoading }: { items: any[] | undefined, isLoadi
     <Section
       id="skills"
       eyebrow="Skills"
-      title={<>Clinical depth. <span className="text-gradient">Modern range.</span></>}
-      description="From bedside to backend — a working toolkit shaped by hospital floors and product thinking."
+      title={<>Clinical competence. <span className="text-gradient">Growing capability.</span></>}
+      description="Built through hands-on clinical practice across diverse hospital settings, with a strong focus on safe, effective, and patient-centered nursing care."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {/* We look at each tool the birdy brought back! */}

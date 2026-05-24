@@ -12,11 +12,12 @@ export function Support({ tiers, goal, isLoading }: { tiers: any[] | undefined, 
   const pct = Math.round((goal.current_amount / goal.target_amount) * 100);
 
   return (
+
     <Section
       id="support"
       eyebrow="Support the journey"
-      title={<>Back a Kenyan nurse <span className="text-gradient">building the future.</span></>}
-      description="If something here moved you — a story, a project, a vision  a small contribution helps fund tools, certifications, and the early days of Mentrae."
+      title={<>Support a Kenyan nurse <span className="text-gradient">shaping better care.</span></>}
+      description="If this work resonates with you, your support helps improve nursing learning tools and contributes to building resources that strengthen clinical education and patient care."
     >
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6">
         <div className="grid sm:grid-cols-2 gap-3">

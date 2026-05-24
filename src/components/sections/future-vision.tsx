@@ -9,8 +9,8 @@ export function FutureVision({ items, isLoading }: { items: any[] | undefined, i
     <Section
       id="vision"
       eyebrow="Future Vision"
-      title={<>The next decade of <span className="text-gradient">Kenyan healthcare.</span></>}
-      description="A future where every nurse has tools as thoughtful as their training — and where patients across the continent feel seen, safe, and supported."
+      title={<>The future of <span className="text-gradient">nursing in Kenya.</span></>}
+      description="A healthcare system where nurses are well-supported, well-equipped, and empowered to deliver safe, effective, and patient-centered care across all clinical settings."
     >
       <div className="relative pl-6 md:pl-0">
         {/* The timeline line */}

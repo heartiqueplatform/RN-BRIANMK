@@ -12,8 +12,8 @@ export function About({ items, isLoading }: { items: any[] | undefined, isLoadin
     <Section
       id="about"
       eyebrow="About me"
-      title={<>A nurse <span className="text-gradient">with a builder's mind.</span></>}
-      description="I trained in Kenya's busiest wards and fell in love with the moments medicine forgets to measure  eye contact, a steady voice, a hand held a second longer. I'm building Mentrae and exploring digital health because the future of African healthcare deserves both clinical excellence and product imagination."
+      title={<>Registered Nurse <span className="text-gradient">focused on patient care.</span></>}
+      description="I trained across diverse clinical settings in Kenya, gaining hands-on experience in medical, surgical, paediatric, psychiatric, and critical care nursing. I value the small but powerful aspects of care clear communication, compassion, and presence at the bedside. My focus is delivering safe, respectful, and patient-centered nursing care while continuously growing in clinical practice."
     >
       <div className="grid sm:grid-cols-2 gap-2">
         {items?.map((item, i) => {
