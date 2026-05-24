@@ -26,6 +26,16 @@ export function Navbar() {
   const { resolved, theme, setTheme } = useTheme();
   const loc = useLocation();
 
+  // --- FEEDBACK LOGIC ---
+  const triggerFeedback = () => {
+    const audio = new Audio("/tap.mp3");
+    audio.volume = 0.4;
+    audio.play().catch(() => { });
+    if ("vibrate" in navigator) {
+      navigator.vibrate(10); // Light haptic tap
+    }
+  };
+
   const { data: profile } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
@@ -34,7 +44,11 @@ export function Navbar() {
     },
   });
 
-  const cycle = () => setTheme(theme === "light" ? "dark" : theme === "dark" ? "system" : "light");
+  const cycle = () => {
+    triggerFeedback();
+    setTheme(theme === "light" ? "dark" : theme === "dark" ? "system" : "light");
+  };
+
   const Icon = theme === "system" ? Monitor : resolved === "dark" ? Moon : Sun;
   const displayName = profile?.full_name || "JxB";
 
@@ -44,61 +58,74 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] w-[min(100%-1.25rem,72rem)]"
     >
-      {/* MAIN BAR - Light/Dark Adaptive */}
+      {/* MAIN BAR */}
       <div className="bg-background/80 dark:bg-card/80 backdrop-blur-xl rounded-full px-4 py-2.5 flex items-center justify-between shadow-lg dark:shadow-2xl border border-border/50">
 
-        <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <span className="relative h-9 w-9 rounded-full overflow-hidden bg-primary/10 dark:bg-primary/20 border-2 border-primary/30 grid place-items-center">
+        <Link
+          to="/"
+          className="flex items-center gap-2 group relative"
+          onClick={() => { triggerFeedback(); setOpen(false); }}
+        >
+          <span className="relative h-9 w-9 rounded-full overflow-hidden bg-primary/10 dark:bg-primary/20 border-2 border-primary/30 grid place-items-center transition-transform group-active:scale-90">
             {profile?.portrait_url ? (
               <img src={profile.portrait_url} alt={displayName} className="h-full w-full object-cover" />
             ) : (
               <span className="font-bold text-primary text-xs">{displayName.charAt(0)}</span>
             )}
-            <span className="absolute inset-0 animate-pulse-glow bg-primary/20 -z-10 blur-sm" />
+            {/* HR WOW: Availability Pulse */}
+            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 bg-green-500 border-2 border-background rounded-full animate-pulse" />
           </span>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-sm tracking-tight leading-none text-foreground">
+            <span className="font-display font-bold text-sm tracking-tight leading-none text-foreground flex items-center gap-1.5">
               {displayName}
             </span>
-            <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">
-              Health Builder
+            <span className="text-[10px] text-primary font-bold uppercase tracking-tighter flex items-center gap-1">
+              Nursing Innovation
+              <Sparkles className="h-2 w-2 fill-primary" />
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav - Light/Dark Adaptive */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-1 relative">
           {navItems.map((n) => {
             const active = loc.pathname === n.to;
             return (
               <Link
                 key={n.to}
                 to={n.to}
+                onClick={triggerFeedback}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm transition-all duration-300",
-                  active
-                    ? "bg-primary text-primary-foreground font-semibold shadow-md"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  "relative px-4 py-2 rounded-full text-sm transition-colors duration-300",
+                  active ? "text-primary-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {n.label}
+                {/* HR WOW: Smooth Sliding Indicator */}
+                {active && (
+                  <motion.div
+                    layoutId="nav-pill"
+                    className="absolute inset-0 bg-primary rounded-full -z-10 shadow-md shadow-primary/20"
+                    transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                  />
+                )}
+                <span className="relative z-10">{n.label}</span>
               </Link>
             );
           })}
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Theme Toggle - Light/Dark Adaptive */}
+          {/* Theme Toggle */}
           <button
             onClick={cycle}
-            className="h-9 w-9 grid place-items-center rounded-full bg-accent/50 hover:bg-accent transition-colors border border-border"
+            className="h-9 w-9 grid place-items-center rounded-full bg-accent/50 hover:bg-accent transition-all active:scale-90 border border-border"
           >
             <Icon className="h-4 w-4 text-foreground" />
           </button>
 
           {/* Mobile Menu Trigger */}
           <button
-            onClick={() => setOpen(!open)}
+            onClick={() => { triggerFeedback(); setOpen(!open); }}
             className="md:hidden h-9 w-9 grid place-items-center rounded-full bg-primary text-primary-foreground shadow-lg active:scale-90 transition-transform"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -106,7 +133,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU - Light/Dark Adaptive */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -129,9 +156,12 @@ export function Navbar() {
                   >
                     <Link
                       to={n.to}
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        triggerFeedback();
+                        setOpen(false);
+                      }}
                       className={cn(
-                        "flex items-center justify-between p-4 rounded-2xl group transition-all",
+                        "flex items-center justify-between p-4 rounded-2xl group transition-all active:scale-[0.98]",
                         active
                           ? "bg-primary/10 border border-primary/20 text-primary"
                           : "hover:bg-accent border border-transparent"
@@ -163,9 +193,15 @@ export function Navbar() {
 
             {/* Bottom Menu Decor */}
             <div className="mt-6 pt-6 border-t border-border flex flex-col items-center gap-1">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/50 font-bold italic">
-                Nursing Innovation
-              </p>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="flex items-center gap-2 mb-1"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Available for Innovation</span>
+              </motion.div>
               <div className="h-1 w-8 bg-primary/20 rounded-full" />
             </div>
           </motion.div>
