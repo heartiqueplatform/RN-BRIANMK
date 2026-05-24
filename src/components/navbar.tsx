@@ -28,11 +28,15 @@ export function Navbar() {
 
   // --- FEEDBACK LOGIC ---
   const triggerFeedback = () => {
-    const audio = new Audio("/tap.mp3");
-    audio.volume = 0.4;
-    audio.play().catch(() => { });
-    if ("vibrate" in navigator) {
-      navigator.vibrate(10); // Light haptic tap
+    // Only run in the browser
+    if (typeof window !== "undefined") {
+      const audio = new Audio("/tap.mp3");
+      audio.volume = 0.4;
+      audio.play().catch(() => { });
+
+      if ("vibrate" in navigator) {
+        navigator.vibrate(10);
+      }
     }
   };
 

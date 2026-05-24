@@ -7,14 +7,15 @@ export function ContactCTA({ data, isLoading }: { data: any; isLoading: boolean 
 
   // --- FEEDBACK LOGIC ---
   const triggerFeedback = () => {
-    // Play the cute tap sound
-    const audio = new Audio("/tap.mp3");
-    audio.volume = 0.4;
-    audio.play().catch(() => { });
+    // Only run in the browser
+    if (typeof window !== "undefined") {
+      const audio = new Audio("/tap.mp3");
+      audio.volume = 0.4;
+      audio.play().catch(() => { });
 
-    // Trigger phone vibration
-    if ("vibrate" in navigator) {
-      navigator.vibrate(10);
+      if ("vibrate" in navigator) {
+        navigator.vibrate(10);
+      }
     }
   };
 
