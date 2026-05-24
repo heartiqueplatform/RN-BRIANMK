@@ -1,11 +1,13 @@
 {
-    "routes": [
+    "cleanUrls": true,
+    "rewrites": [
         {
-            "handle": "filesystem"
+            "source": "/tap.mp3",
+            "destination": "/tap.mp3"
         },
         {
-            "src": "/(.*)",
-            "dest": "/"
+            "source": "/(.*)",
+            "destination": "/"
         }
     ]
 }
