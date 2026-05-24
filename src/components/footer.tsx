@@ -39,7 +39,7 @@ export function Footer() {
             <span className="font-display font-semibold">{name}</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-            Building a calmer, smarter, more human future for healthcare — one shift, one line of code at a time.
+            Compassionate and dedicated to delivering safe, patient-centered care while growing and making a meaningful impact in healthcare.
           </p>
         </div>
 
